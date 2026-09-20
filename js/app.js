@@ -1,7 +1,7 @@
 
 const productos = [
     { id: 1, nombre: "Vestido Amarillo Formal ", precio: 70.000, imagen: "./assets/vestido.jpeg" },
-    { id: 2, nombre: "Conjunto Rosa", precio: 90.000, imagen: "./assets/blusa.jpeg" },
+    { id: 2, nombre: "Conjunto Rosa", precio: 90.000, imagen: "./assets/Blusa.jpeg" },
     { id: 3, nombre: "Conjunto Pantalon Y Blusa Negra", precio: 110.000, imagen: "./assets/pantalon.jpeg" },
     { id: 4, nombre: "Vestido Blanco", precio: 80.00, imagen: "./assets/vestidoBlanco.jpeg" }
 ];
