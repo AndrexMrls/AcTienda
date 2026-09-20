@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ac Tienda de Ropa</title>
+    <link rel="icon" href="./assets/logo.png" type="image/jpeg">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- Encabezado y Navegación -->
+<header>
+        <div class="logo">
+            <!-- Borra el <h2> y pon esta línea: -->
+            <img src="./assets/logo.png" alt="Logo Ac Tienda" style="height: 150px;"> 
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#seccion1">Sección Extra 1</a></li>
+                <li><a href="#seccion2">Sección Extra 2</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Principal (Hero) -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Descubre tu estilo ideal</h1>
+            <p>Nueva Colección de Temporada</p>
+            <button class="btn-comprar">Comprar Ahora</button>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <section id="productos" class="galeria-productos">
+        <h2 class="titulo-seccion">Nuestros Productos</h2>
+        <div class="grid-productos" id="contenedor-productos">
+            <!-- Las tarjetas de ropa se cargarán aquí con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Sección Extra 1 -->
+    <section id="seccion1" class="seccion-extra">
+        <h2 class="titulo-seccion">Título de Sección 1</h2>
+        <div class="contenido-extra">
+            <p>Aquí puedes escribir texto sobre tu tienda, agregar una imagen de promoción, o información de contacto. El fondo es rosado claro para contrastar.</p>
+        </div>
+    </section>
+
+    <!-- Sección Extra 2 -->
+    <section id="seccion2" class="seccion-extra fondo-blanco">
+        <h2 class="titulo-seccion">Título de Sección 2</h2>
+        <div class="contenido-extra">
+            <p>Esta es otra sección adicional. Tiene fondo blanco. Puedes usarla para preguntas frecuentes, testimonios de clientes o políticas de envío.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Ubicación -->
+    <section id="ubicacion" class="ubicacion-tienda">
+        <div class="ubicacion-texto">
+            <h2>Visítanos en nuestra tienda</h2>
+            <p>Ven y descubre tu estilo ideal en persona. ¡Te esperamos!</p>
+            <p><strong>Dirección:</strong> Chinú Cra. 6 #22-116 B/ Chambacu</p>
+            <p><strong>Horario:</strong> Lunes a Sábado, 9:00 AM - 7:00 PM</p>
+            
+            <button id="btn-ubicacion" class="btn-comprar" onclick="toggleMapa()">Ver Ubicación en el Mapa</button>
+        </div>
+        
+        <!-- Contenedor del mapa (Tamaño reducido en el CSS) -->
+        <div id="mapa-tienda" class="mapa-contenedor oculto">
+            <iframe src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1789929162691!5m2!1ses-419!2sco!6m8!1m7!1s7ZlrOcU3sR3vuW2PHogwtw!2m2!1d9.10887506505572!2d-75.39580858444295!3f108.26172593048045!4f-9.69716675000467!5f0.7820865974627469" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 AC Tienda de Ropa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

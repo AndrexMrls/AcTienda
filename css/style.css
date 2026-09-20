@@ -1,0 +1,260 @@
+:root {
+    --rosado-principal: #E58E9B;
+    --rosado-claro: #FFF5F7;
+    --blanco: #FFFFFF;
+    --texto-oscuro: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--blanco);
+    color: var(--texto-oscuro);
+}
+
+/* Header */
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--blanco);
+    box-shadow: 0 2px 10px rgba(229, 142, 155, 0.2);
+}
+
+.logo h2 {
+    color: var(--texto-oscuro);
+    font-size: 2.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--texto-oscuro);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--rosado-principal);
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--rosado-claro);
+    text-align: center;
+    padding: 120px 20px;
+    border-bottom: 5px solid var(--rosado-principal);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--texto-oscuro);
+    margin-bottom: 15px;
+}
+
+.btn-comprar {
+    background-color: var(--rosado-principal);
+    color: var(--blanco);
+    padding: 15px 35px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: var(--texto-oscuro);
+    transform: scale(1.05);
+}
+
+/* Secciones Extras Nuevas */
+.seccion-extra {
+    padding: 80px 20px;
+    background-color: var(--rosado-claro);
+    text-align: center;
+}
+
+.fondo-blanco {
+    background-color: var(--blanco);
+}
+
+.contenido-extra {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Productos */
+.galeria-productos {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--texto-oscuro);
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-producto {
+    background-color: var(--blanco);
+    border: 2px solid var(--rosado-claro);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(229, 142, 155, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(229, 142, 155, 0.3);
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: var(--rosado-claro);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rosado-principal);
+    font-weight: bold;
+}
+
+.tarjeta-producto h3 {
+    margin-bottom: 10px;
+}
+
+.precio {
+    color: var(--rosado-principal);
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.btn-carrito {
+    background-color: var(--blanco);
+    color: var(--texto-oscuro);
+    border: 2px solid var(--texto-oscuro);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-carrito:hover {
+    background-color: var(--texto-oscuro);
+    color: var(--blanco);
+}
+
+/* Ubicación y Mapa Pequeño */
+.ubicacion-tienda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    background-color: var(--rosado-claro);
+}
+
+.ubicacion-texto {
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.ubicacion-texto h2 {
+    color: var(--rosado-principal);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.ubicacion-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.mapa-contenedor {
+    width: 100%;
+    max-width: 500px; /* Aquí controlamos que el mapa sea más pequeño */
+    margin: 20px auto 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 5px solid var(--blanco);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Utilidad para ocultar el mapa y animación */
+.oculto {
+    display: none !important;
+}
+
+#mapa-tienda {
+    animation: aparecerSuave 0.5s ease-in-out;
+}
+
+@keyframes aparecerSuave {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+    background-color: var(--texto-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsividad (Para celulares) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}/* Estilo para que las fotos de la ropa se vean bien */
+.img-ropa {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
