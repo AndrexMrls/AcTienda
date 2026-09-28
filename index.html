@@ -3,82 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ac Tienda de Ropa</title>
-    <link rel="icon" href="./assets/logo.png" type="image/jpeg">
+    <meta name="theme-color" content="#E58E9B">
+    <meta name="description" content="Descubre vestidos y conjuntos en AC Tienda de Ropa, en Chinú. Encuentra tu próximo look favorito.">
+    <title>AC Tienda | Moda para ti</title>
+    <link rel="icon" href="./assets/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <!-- Encabezado y Navegación -->
-<header>
-        <div class="logo">
-            <!-- Borra el <h2> y pon esta línea: -->
-            <img src="./assets/logo.png" alt="Logo Ac Tienda" style="height: 150px;"> 
-        </div>
-        <nav>
+    <div class="barra-anuncio">Nuevos estilos para sentirte increíble · Visítanos en Chinú</div>
+    <header class="encabezado">
+        <a class="logo" href="#inicio" aria-label="AC Tienda, inicio">
+            <img src="./assets/logo.png" alt="Logo AC Tienda">
+        </a>
+        <nav aria-label="Navegación principal">
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#seccion1">Sección Extra 1</a></li>
-                <li><a href="#seccion2">Sección Extra 2</a></li>
-                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#productos">Colección</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#tallas">Guía de tallas</a></li>
+                <li><a href="#ubicacion">Visítanos</a></li>
             </ul>
         </nav>
+        <button class="boton-carrito" id="abrir-carrito" type="button" aria-label="Abrir carrito, 0 productos">
+            <span aria-hidden="true">♡</span> Carrito <span class="contador-carrito" id="contador-carrito">0</span>
+        </button>
     </header>
 
-    <!-- Sección Principal (Hero) -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Descubre tu estilo ideal</h1>
-            <p>Nueva Colección de Temporada</p>
-            <button class="btn-comprar">Comprar Ahora</button>
-        </div>
-    </section>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <p class="sobrelinea">AC TIENDA · CHINÚ</p>
+                <h1>Tu estilo, <em>tu momento.</em></h1>
+                <p>Prendas pensadas para acompañarte y hacerte sentir especial cada día.</p>
+                <a class="btn-comprar" href="#productos">Descubrir colección <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-sello" aria-hidden="true"><span>VISTE<br>COMO<br>ERES</span></div>
+        </section>
 
-    <!-- Catálogo de Productos -->
-    <section id="productos" class="galeria-productos">
-        <h2 class="titulo-seccion">Nuestros Productos</h2>
-        <div class="grid-productos" id="contenedor-productos">
-            <!-- Las tarjetas de ropa se cargarán aquí con JavaScript -->
-        </div>
-    </section>
+        <section class="beneficios" aria-label="Beneficios de compra">
+            <div><span aria-hidden="true">✦</span><p><strong>Estilo para cada ocasión</strong><br>Encuentra tu próximo favorito</p></div>
+            <div><span aria-hidden="true">♡</span><p><strong>Atención cercana</strong><br>Estamos para ayudarte</p></div>
+            <div><span aria-hidden="true">⌖</span><p><strong>Estamos en Chinú</strong><br>Ven a conocernos</p></div>
+        </section>
 
-    <!-- Sección Extra 1 -->
-    <section id="seccion1" class="seccion-extra">
-        <h2 class="titulo-seccion">Título de Sección 1</h2>
-        <div class="contenido-extra">
-            <p>Aquí puedes escribir texto sobre tu tienda, agregar una imagen de promoción, o información de contacto. El fondo es rosado claro para contrastar.</p>
-        </div>
-    </section>
+        <section id="productos" class="galeria-productos">
+            <div class="encabezado-catalogo">
+                <div>
+                    <p class="sobrelinea">HECHO PARA TI</p>
+                    <h2 class="titulo-seccion">La colección</h2>
+                </div>
+                <label class="buscador"><span aria-hidden="true">⌕</span><input id="buscar-productos" type="search" placeholder="Buscar prendas" aria-label="Buscar prendas"></label>
+            </div>
+            <div class="filtros-productos" role="group" aria-label="Filtrar por categoría">
+                <button class="filtro activo" type="button" data-categoria="todos" aria-pressed="true">Todo</button>
+                <button class="filtro" type="button" data-categoria="vestidos" aria-pressed="false">Vestidos</button>
+                <button class="filtro" type="button" data-categoria="conjuntos" aria-pressed="false">Conjuntos</button>
+            </div>
+            <div class="grid-productos" id="contenedor-productos" aria-live="polite"></div>
+            <p class="sin-resultados oculto" id="sin-resultados">No encontramos prendas con esa búsqueda.</p>
+        </section>
 
-    <!-- Sección Extra 2 -->
-    <section id="seccion2" class="seccion-extra fondo-blanco">
-        <h2 class="titulo-seccion">Título de Sección 2</h2>
-        <div class="contenido-extra">
-            <p>Esta es otra sección adicional. Tiene fondo blanco. Puedes usarla para preguntas frecuentes, testimonios de clientes o políticas de envío.</p>
-        </div>
-    </section>
+        <section id="nosotros" class="seccion-nosotros">
+            <div class="nosotros-marca"><span>AC</span><small>MODA CON<br>ESENCIA</small></div>
+            <div class="nosotros-texto">
+                <p class="sobrelinea">UN RINCÓN PARA TI</p>
+                <h2>Vestirte también es una forma de expresarte.</h2>
+                <p>En AC Tienda queremos que encuentres prendas que conecten contigo. Elegimos cada estilo con cariño y te recibimos con una atención cercana, aquí mismo en Chinú.</p>
+                <a class="enlace-texto" href="#ubicacion">Conoce nuestra tienda <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
 
-    <!-- Sección de Ubicación -->
-    <section id="ubicacion" class="ubicacion-tienda">
-        <div class="ubicacion-texto">
-            <h2>Visítanos en nuestra tienda</h2>
-            <p>Ven y descubre tu estilo ideal en persona. ¡Te esperamos!</p>
-            <p><strong>Dirección:</strong> Chinú Cra. 6 #22-116 B/ Chambacu</p>
-            <p><strong>Horario:</strong> Lunes a Sábado, 9:00 AM - 7:00 PM</p>
-            
-            <button id="btn-ubicacion" class="btn-comprar" onclick="toggleMapa()">Ver Ubicación en el Mapa</button>
-        </div>
-        
-        <!-- Contenedor del mapa (Tamaño reducido en el CSS) -->
-        <div id="mapa-tienda" class="mapa-contenedor oculto">
-            <iframe src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1789929162691!5m2!1ses-419!2sco!6m8!1m7!1s7ZlrOcU3sR3vuW2PHogwtw!2m2!1d9.10887506505572!2d-75.39580858444295!3f108.26172593048045!4f-9.69716675000467!5f0.7820865974627469" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-    </section>
+        <section id="tallas" class="seccion-tallas">
+            <p class="sobrelinea">TU AJUSTE IDEAL</p>
+            <h2 class="titulo-seccion">Una guía para elegir</h2>
+            <p class="texto-tallas">Las tallas pueden variar según el diseño. Si tienes dudas sobre una prenda, visítanos y te ayudamos a encontrar el ajuste que buscas.</p>
+            <div class="lista-tallas"><span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+            <p class="nota-tallas">Consulta disponibilidad de talla en tienda.</p>
+        </section>
 
-    <!-- Pie de página -->
+        <section id="ubicacion" class="ubicacion-tienda">
+            <div class="ubicacion-texto">
+                <p class="sobrelinea">TE ESPERAMOS</p>
+                <h2>Ven a conocernos</h2>
+                <p>Descubre la colección en persona y recibe atención personalizada.</p>
+                <p><strong>Dirección</strong><br>Chinú Cra. 6 #22-116 B/ Chambacú</p>
+                <p><strong>Horario</strong><br>Lunes a sábado, 9:00 a. m. – 7:00 p. m.</p>
+                <button id="btn-ubicacion" class="btn-comprar" type="button" aria-expanded="false" aria-controls="mapa-tienda">Ver ubicación en el mapa <span aria-hidden="true">→</span></button>
+            </div>
+            <div id="mapa-tienda" class="mapa-contenedor oculto">
+                <iframe title="Mapa de AC Tienda en Chinú" src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1789929162691!5m2!1ses-419!2sco!6m8!1m7!1s7ZlrOcU3sR3vuW2PHogwtw!2m2!1d9.10887506505572!2d-75.39580858444295!3f108.26172593048045!4f-9.69716675000467!5f0.7820865974627469" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2026 AC Tienda de Ropa. Todos los derechos reservados.</p>
+        <a class="logo-footer" href="#inicio">AC Tienda</a>
+        <p>Moda para ti, en Chinú.</p>
+        <a href="#ubicacion">Dirección y horarios</a>
+        <small>&copy; 2026 AC Tienda de Ropa. Todos los derechos reservados.</small>
     </footer>
+
+    <dialog class="dialogo-carrito" id="dialogo-carrito" aria-labelledby="titulo-carrito">
+        <div class="carrito-cabecera"><h2 id="titulo-carrito">Tu carrito</h2><button id="cerrar-carrito" class="cerrar-dialogo" type="button" aria-label="Cerrar carrito">×</button></div>
+        <div id="items-carrito" class="items-carrito"></div>
+        <p class="carrito-vacio" id="carrito-vacio">Aún no agregas prendas. Tu próximo look te espera.</p>
+        <div class="carrito-pie"><p>Total <strong id="total-carrito">$ 0</strong></p><a class="btn-comprar" href="#ubicacion" id="finalizar-compra">Consultar en tienda <span aria-hidden="true">→</span></a></div>
+    </dialog>
 
     <script src="./js/app.js"></script>
 </body>
