@@ -368,7 +368,7 @@ a { color: inherit; }
 .buscador { width: min(290px, 100%); display: flex; align-items: center; gap: 9px; padding: 9px 12px; border: 1px solid var(--borde); border-radius: 3px; color: #A85E6A; }
 .buscador span { font-size: 1.4rem; line-height: 1; }
 .buscador input { width: 100%; border: 0; outline: 0; color: var(--texto-oscuro); background: transparent; font-size: .88rem; }
-.filtros-productos { display: flex; gap: 8px; margin: 27px 0 25px; }
+.filtros-productos { display: flex; flex-wrap: wrap; gap: 8px; margin: 27px 0 25px; }
 .filtro { padding: 8px 16px; border: 1px solid var(--borde); border-radius: 2px; background: white; color: var(--texto-suave); cursor: pointer; font-size: .85rem; }
 .filtro:hover, .filtro.activo { border-color: var(--rosado-principal); background: var(--rosado-claro); color: #984F5B; }
 .grid-productos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
