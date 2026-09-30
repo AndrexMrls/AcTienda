@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#E58E9B">
-    <meta name="description" content="Descubre vestidos y conjuntos en AC Tienda de Ropa, en Chinú. Encuentra tu próximo look favorito.">
+    <meta name="description" content="Descubre vestidos, jeans, shorts, blusas y sets de dos piezas en AC Tienda de Ropa, en Chinú.">
     <title>AC Tienda | Moda para ti</title>
     <link rel="icon" href="./assets/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,10 @@
             <div class="filtros-productos" role="group" aria-label="Filtrar por categoría">
                 <button class="filtro activo" type="button" data-categoria="todos" aria-pressed="true">Todo</button>
                 <button class="filtro" type="button" data-categoria="vestidos" aria-pressed="false">Vestidos</button>
-                <button class="filtro" type="button" data-categoria="conjuntos" aria-pressed="false">Conjuntos</button>
+                <button class="filtro" type="button" data-categoria="set-dos-piezas" aria-pressed="false">Set dos piezas</button>
+                <button class="filtro" type="button" data-categoria="jeans" aria-pressed="false">Jeans</button>
+                <button class="filtro" type="button" data-categoria="short" aria-pressed="false">Short</button>
+                <button class="filtro" type="button" data-categoria="blusas" aria-pressed="false">Blusas</button>
             </div>
             <div class="grid-productos" id="contenedor-productos" aria-live="polite"></div>
             <p class="sin-resultados oculto" id="sin-resultados">No encontramos prendas con esa búsqueda.</p>
@@ -91,7 +94,18 @@
                 <p>Descubre la colección en persona y recibe atención personalizada.</p>
                 <p><strong>Dirección</strong><br>Chinú Cra. 6 #22-116 B/ Chambacú</p>
                 <p><strong>Horario</strong><br>Lunes a sábado, 9:00 a. m. – 7:00 p. m.</p>
-                <button id="btn-ubicacion" class="btn-comprar" type="button" aria-expanded="false" aria-controls="mapa-tienda">Ver ubicación en el mapa <span aria-hidden="true">→</span></button>
+                <div class="ubicacion-acciones">
+                    <a class="enlace-instagram" href="https://www.instagram.com/ac_tiendaderopa_?stkn=MTdzYjR6b3F2NzRuOQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram en una pestaña nueva">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                        </svg>
+                        <span>Instagram</span>
+                        <span class="instagram-flecha" aria-hidden="true">↗</span>
+                    </a>
+                    <button id="btn-ubicacion" class="btn-comprar" type="button" aria-expanded="false" aria-controls="mapa-tienda">Ver ubicación en el mapa <span aria-hidden="true">→</span></button>
+                </div>
             </div>
             <div id="mapa-tienda" class="mapa-contenedor oculto">
                 <iframe title="Mapa de AC Tienda en Chinú" src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1789929162691!5m2!1ses-419!2sco!6m8!1m7!1s7ZlrOcU3sR3vuW2PHogwtw!2m2!1d9.10887506505572!2d-75.39580858444295!3f108.26172593048045!4f-9.69716675000467!5f0.7820865974627469" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

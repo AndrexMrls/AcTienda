@@ -397,16 +397,22 @@ a { color: inherit; }
 .enlace-texto { display: inline-block; margin-top: 18px; color: #984F5B; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 
 .seccion-tallas { padding: 75px 20px; text-align: center; }
+.seccion-tallas .titulo-seccion { text-align: center; }
 .texto-tallas { max-width: 590px; margin: 14px auto 22px; color: var(--texto-suave); line-height: 1.7; }
 .lista-tallas { display: flex; justify-content: center; gap: 10px; }
 .lista-tallas span { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--borde); border-radius: 50%; font-size: .82rem; font-weight: 700; }
 .nota-tallas { margin-top: 13px; color: var(--texto-suave); font-size: .78rem; }
 
-.ubicacion-tienda { padding: 75px 8vw; display: grid; grid-template-columns: minmax(280px, .9fr) minmax(320px, 1.1fr); align-items: center; gap: 50px; background: var(--rosado-claro); text-align: left; }
-.ubicacion-texto { max-width: 470px; margin-bottom: 0; }
+.ubicacion-tienda { padding: 75px 8vw; display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: 30px; background: var(--rosado-claro); text-align: left; }
+.ubicacion-texto { max-width: 470px; margin: 0 auto; text-align: center; }
 .ubicacion-texto > p:not(.sobrelinea) { margin: 12px 0; color: var(--texto-suave); font-size: .95rem; line-height: 1.7; }
 .ubicacion-texto strong { color: var(--texto-oscuro); }
-.ubicacion-texto .btn-comprar { margin-top: 8px; }
+.ubicacion-acciones { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; }
+.ubicacion-acciones .btn-comprar { margin-top: 0; }
+.enlace-instagram { min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--borde); border-radius: 3px; background: white; color: #984F5B; font-size: .9rem; font-weight: 700; text-decoration: none; transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.enlace-instagram:hover { border-color: #984F5B; background: #FFF9FA; transform: translateY(-1px); }
+.enlace-instagram svg { width: 20px; height: 20px; }
+.instagram-flecha { margin-left: 3px; font-size: 1rem; }
 .mapa-contenedor { width: 100%; max-width: 560px; margin: auto; overflow: hidden; border: 4px solid white; border-radius: 4px; box-shadow: var(--sombra); }
 .mapa-contenedor iframe { display: block; width: 100%; height: 330px; border: 0; }
 

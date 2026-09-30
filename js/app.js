@@ -1,10 +1,17 @@
 
 const productos = [
     { id: 1, nombre: "Vestido amarillo formal", precio: 70000, imagen: "./assets/vestido.jpeg", categoria: "vestidos" },
-    { id: 2, nombre: "Conjunto rosa", precio: 90000, imagen: "./assets/Blusa.jpeg", categoria: "conjuntos" },
-    { id: 3, nombre: "Conjunto pantalón y blusa negra", precio: 110000, imagen: "./assets/pantalon.jpeg", categoria: "conjuntos" },
+    { id: 2, nombre: "Set dos piezas rosa", precio: 90000, imagen: "./assets/Blusa.jpeg", categoria: "set-dos-piezas" },
+    { id: 3, nombre: "Set dos piezas pantalón y blusa negra", precio: 110000, imagen: "./assets/pantalon.jpeg", categoria: "set-dos-piezas" },
     { id: 4, nombre: "Vestido blanco", precio: 80000, imagen: "./assets/vestidoBlanco.jpeg", categoria: "vestidos" }
 ];
+const nombresCategorias = {
+    vestidos: 'Vestido',
+    'set-dos-piezas': 'Set dos piezas',
+    jeans: 'Jeans',
+    short: 'Short',
+    blusas: 'Blusas'
+};
 
 const formatoPrecio = new Intl.NumberFormat('es-CO', {
     style: 'currency',
@@ -26,7 +33,7 @@ function cargarProductos() {
         <article class="tarjeta-producto">
             <div class="producto-foto">
                 <img src="${producto.imagen}" alt="${producto.nombre}" class="img-ropa" loading="lazy">
-                <span class="etiqueta-producto">${producto.categoria === 'vestidos' ? 'Vestido' : 'Conjunto'}</span>
+                <span class="etiqueta-producto">${nombresCategorias[producto.categoria]}</span>
             </div>
             <div class="producto-info">
                 <h3>${producto.nombre}</h3>
