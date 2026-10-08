@@ -27,9 +27,6 @@
                 <li><a href="#ubicacion">Visítanos</a></li>
             </ul>
         </nav>
-        <button class="boton-carrito" id="abrir-carrito" type="button" aria-label="Abrir carrito, 0 productos">
-            <span aria-hidden="true">♡</span> Carrito <span class="contador-carrito" id="contador-carrito">0</span>
-        </button>
     </header>
 
     <main>
@@ -120,11 +117,9 @@
         <small>&copy; 2026 AC Tienda de Ropa. Todos los derechos reservados.</small>
     </footer>
 
-    <dialog class="dialogo-carrito" id="dialogo-carrito" aria-labelledby="titulo-carrito">
-        <div class="carrito-cabecera"><h2 id="titulo-carrito">Tu carrito</h2><button id="cerrar-carrito" class="cerrar-dialogo" type="button" aria-label="Cerrar carrito">×</button></div>
-        <div id="items-carrito" class="items-carrito"></div>
-        <p class="carrito-vacio" id="carrito-vacio">Aún no agregas prendas. Tu próximo look te espera.</p>
-        <div class="carrito-pie"><p>Total <strong id="total-carrito">$ 0</strong></p><a class="btn-comprar" href="#ubicacion" id="finalizar-compra">Consultar en tienda <span aria-hidden="true">→</span></a></div>
+    <dialog class="dialogo-imagen" id="dialogo-imagen" aria-label="Imagen ampliada">
+        <button class="cerrar-vista-imagen" id="cerrar-imagen" type="button" aria-label="Cerrar imagen ampliada">×</button>
+        <img id="imagen-ampliada" alt="">
     </dialog>
 
     <script src="./js/app.js"></script>

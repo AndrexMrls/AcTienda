@@ -19,7 +19,6 @@ const formatoPrecio = new Intl.NumberFormat('es-CO', {
     maximumFractionDigits: 0
 });
 const contenedor = document.getElementById('contenedor-productos');
-const carrito = JSON.parse(localStorage.getItem('ac-tienda-carrito') || '[]');
 let categoriaActiva = 'todos';
 
 function cargarProductos() {
@@ -32,60 +31,22 @@ function cargarProductos() {
     contenedor.innerHTML = resultados.map(producto => `
         <article class="tarjeta-producto">
             <div class="producto-foto">
-                <img src="${producto.imagen}" alt="${producto.nombre}" class="img-ropa" loading="lazy">
+                <button class="boton-vista-imagen" type="button" aria-label="Ver imagen ampliada: ${producto.nombre}">
+                    <img src="${producto.imagen}" alt="${producto.nombre}" class="img-ropa" loading="lazy">
+                </button>
                 <span class="etiqueta-producto">${nombresCategorias[producto.categoria]}</span>
             </div>
             <div class="producto-info">
                 <h3>${producto.nombre}</h3>
                 <p class="precio">${formatoPrecio.format(producto.precio)}</p>
-                <div class="producto-acciones">
-                    <label class="oculto" for="talla-${producto.id}">Talla para ${producto.nombre}</label>
-                    <select class="selector-talla" id="talla-${producto.id}" aria-label="Elige talla para ${producto.nombre}">
-                        <option value="S">Talla S</option><option value="M">Talla M</option><option value="L">Talla L</option>
-                    </select>
-                    <button class="btn-carrito" type="button" data-agregar="${producto.id}">Añadir al carrito</button>
-                </div>
+                <a class="boton-consultar-instagram" href="https://ig.me/m/ac_tiendaderopa_" target="_blank" rel="noopener noreferrer" aria-label="Consultar por Instagram sobre ${producto.nombre}">
+                    Consultar por Instagram
+                </a>
             </div>
         </article>
     `).join('');
     document.getElementById('sin-resultados').classList.toggle('oculto', resultados.length > 0);
 }
-
-function guardarCarrito() {
-    localStorage.setItem('ac-tienda-carrito', JSON.stringify(carrito));
-    actualizarCarrito();
-}
-
-function actualizarCarrito() {
-    const cantidad = carrito.reduce((total, item) => total + item.cantidad, 0);
-    const total = carrito.reduce((suma, item) => {
-        const producto = productos.find(prenda => prenda.id === item.id);
-        return suma + (producto ? producto.precio * item.cantidad : 0);
-    }, 0);
-
-    document.getElementById('contador-carrito').textContent = cantidad;
-    document.getElementById('abrir-carrito').setAttribute('aria-label', `Abrir carrito, ${cantidad} productos`);
-    document.getElementById('total-carrito').textContent = formatoPrecio.format(total);
-    document.getElementById('carrito-vacio').classList.toggle('oculto', carrito.length > 0);
-    document.getElementById('items-carrito').innerHTML = carrito.map((item, indice) => {
-        const producto = productos.find(prenda => prenda.id === item.id);
-        if (!producto) return '';
-        return `<article class="item-carrito"><div><strong>${producto.nombre}</strong><p>Talla ${item.talla} · ${item.cantidad} × ${formatoPrecio.format(producto.precio)}</p></div><button class="quitar-item" type="button" data-quitar="${indice}">Quitar</button></article>`;
-    }).join('');
-}
-
-contenedor.addEventListener('click', evento => {
-    const boton = evento.target.closest('[data-agregar]');
-    if (!boton) return;
-    const id = Number(boton.dataset.agregar);
-    const talla = document.getElementById(`talla-${id}`).value;
-    const existente = carrito.find(item => item.id === id && item.talla === talla);
-    if (existente) existente.cantidad += 1;
-    else carrito.push({ id, talla, cantidad: 1 });
-    guardarCarrito();
-    boton.textContent = 'Añadido';
-    window.setTimeout(() => { boton.textContent = 'Añadir al carrito'; }, 1100);
-});
 
 document.getElementById('buscar-productos').addEventListener('input', cargarProductos);
 document.querySelectorAll('.filtro').forEach(boton => {
@@ -100,16 +61,28 @@ document.querySelectorAll('.filtro').forEach(boton => {
     });
 });
 
-const dialogoCarrito = document.getElementById('dialogo-carrito');
-document.getElementById('abrir-carrito').addEventListener('click', () => dialogoCarrito.showModal());
-document.getElementById('cerrar-carrito').addEventListener('click', () => dialogoCarrito.close());
-document.getElementById('items-carrito').addEventListener('click', evento => {
-    const boton = evento.target.closest('[data-quitar]');
-    if (!boton) return;
-    carrito.splice(Number(boton.dataset.quitar), 1);
-    guardarCarrito();
+const dialogoImagen = document.getElementById('dialogo-imagen');
+const imagenAmpliada = document.getElementById('imagen-ampliada');
+let posicionScrollImagen = 0;
+contenedor.addEventListener('click', evento => {
+    const botonImagen = evento.target.closest('.boton-vista-imagen');
+    if (!botonImagen) return;
+    const imagen = botonImagen.querySelector('img');
+    posicionScrollImagen = window.scrollY;
+    imagenAmpliada.src = imagen.src;
+    imagenAmpliada.alt = imagen.alt;
+    dialogoImagen.showModal();
 });
-document.getElementById('finalizar-compra').addEventListener('click', () => dialogoCarrito.close());
+document.getElementById('cerrar-imagen').addEventListener('click', () => dialogoImagen.close());
+dialogoImagen.addEventListener('click', evento => {
+    if (evento.target === dialogoImagen) dialogoImagen.close();
+});
+dialogoImagen.addEventListener('close', () => {
+    const desplazamientoOriginal = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, posicionScrollImagen);
+    document.documentElement.style.scrollBehavior = desplazamientoOriginal;
+});
 
 document.getElementById('btn-ubicacion').addEventListener('click', evento => {
     const mapa = document.getElementById('mapa-tienda');
@@ -117,6 +90,5 @@ document.getElementById('btn-ubicacion').addEventListener('click', evento => {
     evento.currentTarget.setAttribute('aria-expanded', String(visible));
     evento.currentTarget.innerHTML = visible ? 'Ocultar mapa <span aria-hidden="true">↑</span>' : 'Ver ubicación en el mapa <span aria-hidden="true">→</span>';
 });
-
 cargarProductos();
-actualizarCarrito();
+cargarProductos();
